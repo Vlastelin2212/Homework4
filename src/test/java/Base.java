@@ -4,16 +4,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
-import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
-import static java.lang.Thread.sleep;
+
+
+
 
 public class Base {
     EventFiringWebDriver driver;
@@ -28,7 +25,7 @@ public class Base {
             initedDriver = initChromeDriver();
         }
         this.driver = new EventFiringWebDriver(initedDriver);
-//        driver.register(new EventHandler());
+        this.driver.register(new EventHandler());
         this.driver.manage().window().maximize();
         this.action = new Actions(this.driver);
         this.wait = new WebDriverWait(this.driver, 30);
